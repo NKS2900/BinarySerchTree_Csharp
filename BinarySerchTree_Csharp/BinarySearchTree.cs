@@ -10,6 +10,8 @@ namespace BinarySerchTree_Csharp
         public BinarySearchTree<T> leftTree { get; set; }
         public BinarySearchTree<T> rightTree { get; set; }
 
+        int leftCount = 0;
+        int rightCount = 0;
         public BinarySearchTree(T NodeData)
         {
             this.NodeData = NodeData;
@@ -47,13 +49,23 @@ namespace BinarySerchTree_Csharp
         {
             if (leftTree != null)
             {
+                leftCount++;
                 leftTree.Display();
             }
             Console.WriteLine(NodeData.ToString());
             if (rightTree != null)
             {
+                rightCount++;
                 rightTree.Display();
             }
+        }
+
+        /// <summary>
+        /// Size of Tree.
+        /// </summary>
+        public void Size()
+        {
+            Console.WriteLine("Size of BST is " + (1 + leftCount + rightCount));
         }
     }
 }
