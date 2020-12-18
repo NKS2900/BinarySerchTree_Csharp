@@ -10,6 +10,7 @@ namespace BinarySerchTree_Csharp
         public BinarySearchTree<T> leftTree { get; set; }
         public BinarySearchTree<T> rightTree { get; set; }
 
+        bool result = false;
         int leftCount = 0;
         int rightCount = 0;
         public BinarySearchTree(T NodeData)
@@ -66,6 +67,30 @@ namespace BinarySerchTree_Csharp
         public void Size()
         {
             Console.WriteLine("Size of BST is " + (1 + leftCount + rightCount));
+        }
+
+        /// <summary>
+        /// Search Element in BST.
+        /// </summary>
+        /// <param name="element"></param>
+        /// <param name="node"></param>
+        /// <returns></returns>
+        public bool ifExists(T element, BinarySearchTree<T> node)
+        {
+            if (node == null)
+                return false;
+            if (node.NodeData.Equals(element))
+            {
+                Console.WriteLine("Element Found In BST :" + node.NodeData);
+                return true;
+            }
+            else
+                Console.WriteLine("Current element is {0} in BST ", node.NodeData);
+            if (element.CompareTo(node.NodeData) < 0)
+                ifExists(element, node.leftTree);
+            if (element.CompareTo(node.NodeData) > 0)
+                ifExists(element, node.rightTree);
+            return result;
         }
     }
 }

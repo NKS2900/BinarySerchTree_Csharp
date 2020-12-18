@@ -22,6 +22,7 @@ namespace BinarySerchTree_Csharp
             binarySearchTree.Insert(67);
             binarySearchTree.Display();
             binarySearchTree.Size();
+            bool findElement = binarySearchTree.ifExists(63, binarySearchTree);
             Console.ReadKey();
         }
     }
